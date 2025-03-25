@@ -1,0 +1,31 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Skaya frontend application",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo '🚀 Starting frontend in PRODUCTION mode' && npm run build && node server.js",
+    "dev": "echo '🔧 Running frontend in DEVELOPMENT mode' && cross-env NODE_ENV=development webpack serve --mode development",
+    "stage": "echo '🛠️ Running frontend in STAGING mode' && cross-env NODE_ENV=staging webpack --mode production",
+    "build": "echo '📦 Building frontend assets' && webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skaya-labs/frontend.git"
+  },
+  "keywords": [
+    "skaya",
+    "frontend",
+    "react"
+  ],
+  "author": "Skaya Labs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skaya-labs/frontend/issues"
+  },
+  "homepage": "https://github.com/skaya-labs/frontend#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
