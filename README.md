@@ -90,7 +90,6 @@ skaya-frontend/
 ├── src/
 │   ├── assets/
 │   ├── components/
-│   ├── hooks/
 │   ├── layouts/         # Layout components
 │   │   └── [LayoutName]/
 │   │       └── [LayoutName].tsx
@@ -98,19 +97,18 @@ skaya-frontend/
 │   │   ├── HomePage/
 │   │   │   └── Homepage.tsx
 │   │   └── [LayoutName]/
-│   │       └── Page.tsx
-│   ├── router/
-│   │   └── Router.tsx   # Custom router configuration and component
-│   ├── services/
-│   ├── styles/
+│   │       └── ProtectedPage/
+│   │           └── ProtectedPage.tsx
+│   ├── routes.tsx # Custom router configuration and component
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── vite-env.d.ts
-├── .eslintrc.cjs
 ├── .gitignore
+├── eslint.config.js
 ├── index.html
 ├── package.json
 ├── README.md
+├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
@@ -118,7 +116,7 @@ skaya-frontend/
 
 ## Routing and Layout Convention
 
-The `src/router/Router.tsx` component automatically generates routes based on the files present in the `/src/pages` directory.
+The `src/routes.tsx` component automatically generates routes based on the files present in the `/src/pages` directory.
 
 - **Basic Routing:** Any `.tsx` or `.jsx` file within `/src/pages` will be treated as a route. For example, `/src/pages/AboutUs.tsx` will be accessible at the `/aboutus` path. An `index.tsx` file within a directory will be the default route for that path (e.g., `/src/pages/products/index.tsx` will be accessible at `/products`).
 - **Dynamic Routes:** Files or directories enclosed in square brackets `[]` will be treated as dynamic route segments. For example, `/src/pages/users/[id].tsx` will create a route like `/users/:id`.
