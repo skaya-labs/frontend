@@ -146,6 +146,51 @@ const ROUTER_CONFIG = {
 };
 ```
 
+## React Backend Request Utility
+This project includes a pre-configured Request utility for making API calls to your backend. It handles authentication, error messages, and dynamic endpoint loading
+ ### 📝 Usage
+ 1. Define Your API Endpoints
+
+  Create apiEndpoint.tsx in @/APIs/ with the following structure: 
+```ts
+    // @/APIs/apiEndpoint.tsx
+import { ApiEndpointType } from '@/Datatypes/enums';
+
+export const ApiEndpoint: ApiEndpointType = {
+  GET_USERS: {
+    url: '/api/users/',
+    method: 'GET',
+    withAuth: true,
+    errorMessage: 'Failed to fetch users',
+  },
+  LOGIN: {
+    url: '/api/auth/login/',
+    method: 'POST',
+    errorMessage: 'Login failed',
+    successMessage: 'Logged in successfully!',
+  },
+  // Add more endpoints...
+};
+```
+  2. Make API Calls
+
+Import and use Request in your components:
+```ts
+import Request from '@/services/Request';
+
+// Example: Fetching users
+const fetchUsers = async () => {
+  try {
+    const users = await Request({
+      endpointId: 'GET_USERS', // Must match the key in ApiEndpoint
+    });
+    console.log('Users:', users);
+  } catch (error) {
+    console.error('Error fetching users:', error);
+  }
+};
+```
+
 # Contributing
 
 Contributions are welcome! Please follow these steps:
