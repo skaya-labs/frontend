@@ -83,6 +83,12 @@ const generateRoutes = (): any[] => {
       .replace(/\.(jsx|tsx)$/, '')
       .replace(/\/index$/, '')
       .replace(/\[(.*?)\]/g, ':$1');
+
+    // Flatten the path by taking only the last segment
+    const segments = routePath.split('/').filter(Boolean);
+    if (segments.length > 1) {
+      routePath = `/${segments[segments.length - 1]}`;
+    }
     
     // Handle root index
     if (routePath === '') routePath = '/';
@@ -125,6 +131,10 @@ const Router: React.FC = () => {
     {
       path: "/",
       children: [
+        { 
+          index: true,  // This makes it the default route for "/"
+          element: createLazyElement(() => import('./pages/HomePage/index.tsx'))
+        },
         ...generateRoutes(),
         { 
           path: "*", 
