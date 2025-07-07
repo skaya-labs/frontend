@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { RequestOptions } from '@/Datatypes/interfaces';
 import Cookies from 'js-cookie';
-import { ApiEndpoint } from '@/APIs/apiEndpoints';
+import { ApiEndpoint } from '@/apis/apiEndpoints';
 
 const Request = async ({ endpointId, slug, data, headers, params }: RequestOptions) => {
   // Define the path to the API endpoints file
