@@ -1,0 +1,1 @@
+import{j as e}from"./index-BhzJ3OOW.js";function r(){return e.jsxs(e.Fragment,{children:[e.jsx("h1",{children:"Vite + React"}),e.jsx("p",{className:"read-the-docs",children:"Click on the Vite and React logos to learn more"})]})}export{r as default};
